@@ -18,8 +18,9 @@
 
     document.querySelector(".randomChooseBtn").addEventListener("click", function () {
         document.querySelector(".types").innerHTML = "";
+        document.querySelector(".types").classList.add('showTypes');
         randomThreeItemsChooser().forEach(function(type,index){
-            document.querySelector(".types").innerHTML += `<span class="${type}">${type}</span>`
+            document.querySelector(".types").innerHTML += `<span class="icoType ${type.toLowerCase()}">${type}</span>`
         })
     })
 
@@ -27,6 +28,9 @@
         PUTO el que modifique esto ilegalmente >:v
     */
 //    let endpoint = atob("aHR0cHM6Ly93d3cuanNvbnN0b3JlLmlvLzNhNzE2ZWMyZTI4MDZlOTZlMGIxOWI3MGUzNWYxZGU4NzAyZjFhNDQ0YWIwMTJlNWI2MmQ5MjM4M2JmOTNiYWU=");
+//    
+//    
+//    
 //    fetch(endpoint, {
 //        headers: {
 //            'Content-type': 'application/json',
