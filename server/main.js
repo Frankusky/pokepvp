@@ -11,10 +11,27 @@ app.get("/", (req, res)=>{
 	res.status(200);
 })
 
+let allUsers = [];
 io.on("connection", (socket)=>{
-	socket.on("newMessage", (data)=>{
-		io.sockets.emit("messages",data)
+	socket.on("newUser", (data)=>{
+        var validNewUser = true;
+        allUsers.some(user=>{
+            if(user.id==socket.id){
+                validNewUser = false
+                console.log(allUsers)
+                return true
+            }
+        })
+        if(validNewUser) allUsers.push({id:socket.id, username: data.username, status: 0});
+		io.sockets.emit("updateUserList",allUsers.map(user=>{return user.username}))
 	})
+    
+    socket.on("disconnect", ()=>{
+        allUsers = allUsers.filter(user=>{
+            return user.id != socket.id
+        })
+        io.sockets.emit("updateUserList",allUsers.map(user=>{return user.username}))
+    })
 });
 
 server.listen(app.get("port"), ()=>{
