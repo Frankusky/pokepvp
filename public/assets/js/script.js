@@ -32,7 +32,7 @@ let socket = io.connect("/", {
 
 let loadMessage = (data) => {
 	let html = `<div><strong>${data.username}</strong> says: ${data.username}</div>`;
-    document.querySelector(".usersList").innerHTML = html;  
+    document.querySelector(".usersList").value = html;  
 }
 
 socket.on("messages", (data) => {
