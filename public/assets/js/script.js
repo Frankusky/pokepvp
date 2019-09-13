@@ -31,7 +31,7 @@ let socket = io.connect("/", {
 
 
 let loadMessage = (data) => {
-	let html = `<div><strong>${data.username}</strong> says: ${data.message}</div>`;
+	let html = `<div><strong>${data.username}</strong> says: ${data.username}</div>`;
     document.querySelector(".usersList").innerHTML = html;  
 }
 

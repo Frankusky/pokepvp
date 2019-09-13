@@ -12,7 +12,6 @@ app.get("/", (req, res)=>{
 })
 
 io.on("connection", (socket)=>{
-	socket.emit("messages", {username:"Servidor", message: "Welcome to my chat system!"})
 	socket.on("newMessage", (data)=>{
 		io.sockets.emit("messages",data)
 	})
