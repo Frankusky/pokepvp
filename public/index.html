@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Pokemon Go - PVP</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Pokemon Go - PVP</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="logo"><img src="assets/img/logo.png" alt="PokePVP"></div>
-    <div class="types">
-      <span class="icoType psychic"></span>
-      <span class="icoType electric"></span>
-      <span class="icoType dragon"></span>
-      <!--
+    <div class="container">
+        <div class="logo"><img src="assets/img/logo.png" alt="PokePVP"></div>
+        <div class="types">
+            <span class="icoType psychic"></span>
+            <span class="icoType electric"></span>
+            <span class="icoType dragon"></span>
+            <!--
       <span class="icoType ghost"></span>
       <span class="icoType normal"></span>
       <span class="icoType rock"></span>
@@ -32,13 +32,15 @@
       <span class="icoType bug"></span>
       <span class="icoType dark"></span>
     -->
-    <!--
+            <!--
 
     -->
+        </div>
+        <button class="randomChooseBtn">Generate 3 Random Types</button>
     </div>
-    <button class="randomChooseBtn">Generate 3 Random Types</button>
-  </div>
-  <script src="assets/js/script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
