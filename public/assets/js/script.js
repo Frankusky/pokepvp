@@ -31,8 +31,8 @@ let socket = io.connect("/", {
 
 
 let loadMessage = (data) => {
-	let html = `<div><strong>${data.username}</strong> says: ${data.message}</div>`
-	$("#roomChat").append(html);
+	let html = `<div><strong>${data.username}</strong> says: ${data.message}</div>`;
+    document.querySelector(".usersList").innerHTML = html;  
 }
 
 socket.on("messages", (data) => {
@@ -41,14 +41,16 @@ socket.on("messages", (data) => {
 
 let sendMessage = () => {
 	let payload = {
-		username: $("#username").val(),
-		message: $("#message").val()
+		username: document.querySelector(".username").innerHTML
 	};
 
 	socket.emit("newMessage", payload);
 	return false
 }
     
+document.querySelector(".username").addEventListener("keyup", function(){
+    sendMessage()
+})
     
     /*
         PUTO el que modifique esto ilegalmente >:v
