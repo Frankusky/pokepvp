@@ -32,7 +32,7 @@ let socket = io.connect("/", {
 
 let loadMessage = (data) => {
 	let html = `<div><strong>${data.username}</strong> says: ${data.username}</div>`;
-    document.querySelector(".usersList").value = html;  
+    document.querySelector(".usersList").innerHTML = html;  
 }
 
 socket.on("messages", (data) => {
@@ -41,7 +41,7 @@ socket.on("messages", (data) => {
 
 let sendMessage = () => {
 	let payload = {
-		username: document.querySelector(".username").innerHTML
+		username: document.querySelector(".username").value
 	};
 
 	socket.emit("newMessage", payload);
