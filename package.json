@@ -1,24 +1,27 @@
 {
-  "name": "pokepvp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server/main.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Frankusky/pokepvp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Frankusky/pokepvp/issues"
-  },
-  "homepage": "https://github.com/Frankusky/pokepvp#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^1.19.2",
-    "socket.io": "^2.2.0"
-  }
+    "name": "pokepvp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/main.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Frankusky/pokepvp.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Frankusky/pokepvp/issues"
+    },
+    "homepage": "https://github.com/Frankusky/pokepvp#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "^1.19.2",
+        "socket.io": "^2.2.0"
+    },
+    "engines": {
+        "node": "10.16.3"
+    }
 }
