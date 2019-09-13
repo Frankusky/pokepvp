@@ -1,30 +1,5 @@
 (function () {
     "use strict";
-    const pokemonTypes = ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying", "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"];
-    let removeSelectedItem = (arr, deleteItem) => {
-        return arr.filter((item) => {
-            return item != deleteItem;
-        })
-    }
-    let randomThreeItemsChooser = () => {
-        let selectedTypes = [];
-        let tempPokeTypes = pokemonTypes;
-        for (let i = 0; i < 3; i++) {
-            let type = tempPokeTypes[Math.floor(Math.random() * tempPokeTypes.length)];
-            tempPokeTypes = removeSelectedItem(tempPokeTypes, type);
-            selectedTypes.push(type);
-        }
-        return selectedTypes
-    }
-
-    document.querySelector(".randomChooseBtn").addEventListener("click", function () {
-        document.querySelector(".types").innerHTML = "";
-        document.querySelector(".types").classList.add('showTypes');
-        randomThreeItemsChooser().forEach(function (type, index) {
-            document.querySelector(".types").innerHTML += `<span class="icoType ${type.toLowerCase()}">${type}</span>`
-        })
-    })
-
     let socket = io.connect("/", {
         forceNew: true
     })
@@ -42,6 +17,14 @@
             document.querySelector(".usersList").appendChild(newUserDom);
         })
     })
+    socket.on("displayPokemonTypes", data => {        
+        document.querySelector(".types").innerHTML = "";
+        document.querySelector(".types").classList.add('showTypes');
+        data.forEach(function (type) {
+            document.querySelector(".types").innerHTML += `<span class="icoType ${type.toLowerCase()}">${type}</span>`
+        })
+    })
+
     let newUser = () => {
         let payload = {
             username: document.querySelector(".username").value
@@ -52,10 +35,11 @@
     }
 
     document.querySelector("#login").addEventListener("click", function () {
-        console.log("test")
         newUser();
     })
-
+    document.querySelector(".randomChooseBtn").addEventListener("click", function () {
+        socket.emit("requestThreeRandomPokemons");
+    })
     /*
         PUTO el que modifique esto ilegalmente >:v
     */
