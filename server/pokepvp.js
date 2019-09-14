@@ -5,11 +5,14 @@ module.exports = {
             return item != deleteItem;
         })
     },
+    randomItemSelector: (items)=>{
+        return items[Math.floor(Math.random() * items.length)]
+    },
     randomThreeItemsChooser : function(){
         let selectedTypes = [];
         let tempPokeTypes = this.pokemonTypes;
         for (let i = 0; i < 3; i++) {
-            let type = tempPokeTypes[Math.floor(Math.random() * tempPokeTypes.length)];
+            let type = this.randomItemSelector(tempPokeTypes);
             tempPokeTypes = this.removeSelectedItem(tempPokeTypes, type);
             selectedTypes.push(type);
         }

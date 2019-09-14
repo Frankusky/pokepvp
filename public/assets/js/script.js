@@ -1,23 +1,24 @@
 (function () {
     "use strict";
     let socket = io.connect("/", {
-        forceNew: true
-    })
-
-    let loadMessage = (data) => {
-        let html = `<div><strong>${data.username}</strong> says: ${data.username}</div>`;
-        document.querySelector(".usersList").innerHTML = html;
-    }
+            forceNew: true
+        }),
+        userData = {};
 
     socket.on("updateUserList", data => {
-        document.querySelector(".usersList").innerHTML = "";
+        document.querySelector(".usersList").innerHTML = "<option value=''>Select a player</option>";
         data.forEach(username => {
-            let newUserDom = document.createElement("span");
-            newUserDom.textContent = username;
-            document.querySelector(".usersList").appendChild(newUserDom);
+            if (document.querySelector(".username").value != username) {
+                let newUserDom = document.createElement("option");
+                newUserDom.textContent = username;
+                newUserDom.value = username;
+                document.querySelector(".usersList").appendChild(newUserDom);
+            }
         })
     })
-    socket.on("displayPokemonTypes", data => {        
+
+    socket.on("displayPokemonTypes", data => {
+        console.log("asdf");
         document.querySelector(".types").innerHTML = "";
         document.querySelector(".types").classList.add('showTypes');
         data.forEach(function (type) {
@@ -25,20 +26,28 @@
         })
     })
 
-    let newUser = () => {
-        let payload = {
-            username: document.querySelector(".username").value
-        };
-
-        socket.emit("newUser", payload);
-        return false
-    }
+    socket.on("confirmChallenge", response => {
+        userData.challengeResponse = confirm(response.message);
+        if(userData.challengeResponse){
+            userData.rival = response.rival;
+            userData.role = "visitor";
+        }
+        socket.emit("challengeResponse", userData);
+    })
 
     document.querySelector("#login").addEventListener("click", function () {
-        newUser();
+        userData.username = document.querySelector(".username").value;
+        socket.emit("newUser", userData);
     })
+
     document.querySelector(".randomChooseBtn").addEventListener("click", function () {
-        socket.emit("requestThreeRandomPokemons");
+        socket.emit("requestThreeRandomPokemons", userData);
+    })
+
+    document.querySelector(".challengeUser").addEventListener("click", function () {
+        let selectedUser = document.querySelector(".usersList").selectedOptions[0].value;
+        userData.rival = selectedUser;
+        socket.emit("challengeUser", userData);
     })
     /*
         PUTO el que modifique esto ilegalmente >:v
