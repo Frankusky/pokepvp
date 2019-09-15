@@ -47,18 +47,24 @@ io.on("connection", (socket) => {
     })
 
     socket.on("requestThreeRandomPokemons", userData => {
+        console.log(userData)
         var selectedTypes = pokepvp.randomThreeItemsChooser();
-        allUsers.forEach((item, index) => {
-            if (userData.rival) {
-                if (item.challengeResponse && (userData.username === item.username || userData.rival === item.username)) {
-                    io.to(item.id).emit("displayPokemonTypes", selectedTypes)
+        //multiple users online
+        if (allUsers.length > 0) {
+            allUsers.forEach((item, index) => {
+                if (userData.rival) {
+                    if (item.challengeResponse && (userData.username === item.username || userData.rival === item.username)) {
+                        io.to(item.id).emit("displayPokemonTypes", selectedTypes)
+                    }
+                } else {
+                    if (!item.fighting) {
+                        io.to(item.id).emit("displayPokemonTypes", selectedTypes);
+                    }
                 }
-            } else {
-                if(!item.fighting){                    
-                    io.sockets.emit("displayPokemonTypes", pokepvp.randomThreeItemsChooser());
-                }
-            }
-        })
+            })
+        } else {
+            io.sockets.emit("displayPokemonTypes", selectedTypes);
+        }
     })
 
     socket.on("challengeUser", (userdata) => {
