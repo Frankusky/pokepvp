@@ -39,9 +39,21 @@
         userData.username = document.querySelector(".username").value;
         socket.emit("newUser", userData);
     })
-
+    
+    document.querySelectorAll("[name='typeAmmount']").forEach(function(item){
+        item.addEventListener("click",function(){
+            if(this.value == 3){
+                document.getElementById("enableRepeatedRandoms").disabled = false;
+            }else{
+                document.getElementById("enableRepeatedRandoms").disabled = true;
+                document.getElementById("enableRepeatedRandoms").checked = false;
+            }
+        })
+    })
     document.querySelector(".randomChooseBtn").addEventListener("click", function () {
-        socket.emit("requestThreeRandomPokemons", userData);
+        var typesAmmount = document.querySelector("[name='typeAmmount']:checked").value;
+        var repeatTypes = document.getElementById("enableRepeatedRandoms").checked;
+        socket.emit("requestRandomPokemons", {userData:userData, ammount: typesAmmount, repeat: repeatTypes});
     })
 
     document.querySelector(".challengeUser").addEventListener("click", function () {
@@ -49,30 +61,4 @@
         userData.rival = selectedUser;
         socket.emit("challengeUser", userData);
     })
-    /*
-        PUTO el que modifique esto ilegalmente >:v
-    */
-    //    let endpoint = atob("aHR0cHM6Ly93d3cuanNvbnN0b3JlLmlvLzNhNzE2ZWMyZTI4MDZlOTZlMGIxOWI3MGUzNWYxZGU4NzAyZjFhNDQ0YWIwMTJlNWI2MmQ5MjM4M2JmOTNiYWU=");
-    //    
-    //    
-    //    
-    //    fetch(endpoint, {
-    //        headers: {
-    //            'Content-type': 'application/json',
-    //            'Origin' : window.location.href
-    //        },
-    //        method: 'POST',
-    //        body: JSON.stringify({
-    //            name: 'jon snow',
-    //            age: 31
-    //        }),
-    //    });
-    //
-    //    fetch(endpoint, {
-    //        method: "GET",
-    //        headers: {
-    //            'Content-Type': 'application/json',
-    //            'Origin' : window.location.href
-    //        }
-    //    }).then(res => res.json()).then(res => console.log(res))
 })()

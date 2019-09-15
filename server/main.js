@@ -4,6 +4,7 @@ let express = require("express"),
     server = require("http").Server(app),
     io = require("socket.io")(server),
     pokepvp = require("./pokepvp.js"),
+    dataStorage = require("./dataStorage.js"),
     allUsers = [];
 /*
 allUsers = [{
@@ -15,6 +16,13 @@ allUsers = [{
 }]
 
 */
+dataStorage
+    .addUser("Calizman")
+    .then(response => {
+        console.log(response)
+    }).catch(err => {
+        console.log(err)
+    })
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static("public"));
@@ -46,14 +54,18 @@ io.on("connection", (socket) => {
         }))
     })
 
-    socket.on("requestThreeRandomPokemons", userData => {
-        console.log(userData)
-        var selectedTypes = pokepvp.randomThreeItemsChooser();
+    socket.on("requestRandomPokemons", data => {
+        var selectedTypes;
+        if (data.ammount == 3) {
+            selectedTypes = pokepvp.randomThreeItemsChooser(data.repeat);
+        } else {
+            selectedTypes = pokepvp.randomSingleTypeChooser();
+        }
         //multiple users online
         if (allUsers.length > 0) {
             allUsers.forEach((item, index) => {
                 if (userData.rival) {
-                    if (item.challengeResponse && (userData.username === item.username || userData.rival === item.username)) {
+                    if (item.challengeResponse && (data.userData.username === item.username || data.userData.rival === item.username)) {
                         io.to(item.id).emit("displayPokemonTypes", selectedTypes)
                     }
                 } else {
@@ -102,7 +114,7 @@ io.on("connection", (socket) => {
                 }
             }
         })
-    })
+    });
     socket.on("disconnect", () => {
         allUsers = allUsers.filter(user => {
             return user.id != socket.id

@@ -41,6 +41,20 @@
 
     -->
         </div>
+        <form action="" id="options">
+            <fieldset>
+                <p>
+                    <input name="typeAmmount" type="radio" id="oneRandom" value="1">
+                    <label for="typeAmmount">Generate 1 Random Type</label>
+                </p>
+                <p>
+                    <input name="typeAmmount" type="radio" id="threeRandoms" value="3" checked>
+                    <label for="typeAmmount">Generate 3 Randoms Types</label>
+                    <input name="enableRepeat" type="checkbox" id="enableRepeatedRandoms">
+                    <label for="enableRepeat">Enable Repeat</label>
+                </p>
+            </fieldset>
+        </form>
         <button class="randomChooseBtn">Generate 3 Random Types</button>
     </div>
     <script src="/socket.io/socket.io.js"></script>
