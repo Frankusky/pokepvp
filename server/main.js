@@ -47,17 +47,18 @@ io.on("connection", (socket) => {
     })
 
     socket.on("requestThreeRandomPokemons", userData => {
-       console.log(userData)
-        if (userData.rival) {
-            var selectedTypes = pokepvp.randomThreeItemsChooser();
-            allUsers.forEach((item, index) => {
-                if(item.challengeResponse && (userData.username === item.username || userData.rival === item.username)){
+        var selectedTypes = pokepvp.randomThreeItemsChooser();
+        allUsers.forEach((item, index) => {
+            if (userData.rival) {
+                if (item.challengeResponse && (userData.username === item.username || userData.rival === item.username)) {
                     io.to(item.id).emit("displayPokemonTypes", selectedTypes)
                 }
-            })
-        } else {
-            io.sockets.emit("displayPokemonTypes", pokepvp.randomThreeItemsChooser());
-        }
+            } else {
+                if(!item.fighting){                    
+                    io.sockets.emit("displayPokemonTypes", pokepvp.randomThreeItemsChooser());
+                }
+            }
+        })
     })
 
     socket.on("challengeUser", (userdata) => {
