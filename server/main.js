@@ -16,13 +16,13 @@ allUsers = [{
 }]
 
 */
-dataStorage
-    .addUser("Calizman")
-    .then(response => {
-        console.log(response)
-    }).catch(err => {
-        console.log(err)
-    })
+//dataStorage
+//    .addUser("Calizman")
+//    .then(response => {
+//        console.log(response)
+//    }).catch(err => {
+//        console.log(err)
+//    })
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static("public"));
