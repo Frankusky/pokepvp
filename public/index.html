@@ -15,7 +15,7 @@
     </div>
     <div class="container">
         <select name="usersList" class="usersList"></select><button class="challengeUser">Challenge User</button>
-        <div class="submitResults">
+        <form class="submitResults">
             <div class="playerSubmit">
                 <div class="pokeImage">
                     <img class="pokeImg" src="" alt="">
@@ -44,6 +44,13 @@
                     <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
                 </div>
             </div>
+            <div class="winner">
+                <label for="winner" id="host"></label>
+                <input type="radio" name="winner">
+                <label for="winner" id="visitor"></label>
+                <input type="radio" name="winner">
+            </div>
+            <button>Submit</button>
             <datalist id="pokemonsNames">
                 <option value="Bulbasaur" img-value="001-00">Bulbasaur</option>
                 <option value="Ivysaur" img-value="002-00">Ivysaur</option>
@@ -557,7 +564,7 @@
                 <option img-value="088-61" value="Grimer (Alola Form)"> Grimer (Alola Form)</option>
                 <option img-value="089-61" value="Muk (Alola Form)"> Muk (Alola Form)</option>
             </datalist>
-        </div>
+        </form>
         <div class="logo"><img src="assets/img/logo.png" alt="PokePVP"></div>
         <div class="types">
             <!--
