@@ -77,7 +77,7 @@
                 this.value = "";
                 this.parentElement.querySelector(".pokeImg").setAttribute("src", ""); 
             } else {
-                this.parentElement.querySelector(".pokeImg").setAttribute("src", "https://pokemon.gameinfo.io/images/pokemon-go/thumbs/60/"+pokemonList[this.value]+"-00.webp"); 
+                this.parentElement.querySelector(".pokeImg").setAttribute("src", "https://pokemon.gameinfo.io/images/pokemon-go/thumbs/60/"+pokemonList[this.value]+".webp"); 
             }
         })
     })
