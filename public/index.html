@@ -8,604 +8,90 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="hideModal">
+    <div class="modalBackground"></div>
     <div class="modal">
-        <input type="text" class="username" placeholder="Pokemon Go Username">
-        <button id="login">Login</button>
+        <img class="pokeHeader" src="assets/img/pikachu.gif" alt="">
+        <div class="modalContent">
+            <img class="pokeCorner" src="assets/img/pokeball.gif" alt="">
+            <img class="pokeCorner" src="assets/img/pokeball.gif" alt="">
+            <img class="pokeCorner" src="assets/img/pokeball.gif" alt="">
+            <img class="pokeCorner" src="assets/img/pokeball.gif" alt="">
+            <h1>Welcome!</h1>
+
+            <div>
+                <span>Please enter your <br>pokemon go username:</span>
+                <br>
+                <input type="text" class="username" placeholder="Pokemon Go Username">
+                <button id="login">Login</button>
+            </div>
+            <div id="guest">
+                <span>Or play as </span><button id="guestBtn">Guest</button>
+            </div>
+        </div>
     </div>
     <div class="container">
-        <select name="usersList" class="usersList"></select><button class="challengeUser">Challenge User</button>
-        <form class="submitResults">
-            <div class="playerSubmit">
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-            </div>
-            <div class="playerSubmit">
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-                <div class="pokeImage">
-                    <img class="pokeImg" src="" alt="">
-                    <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
-                </div>
-            </div>
-            <div class="winner">
-                <label for="winner" id="host"></label>
-                <input type="radio" name="winner">
-                <label for="winner" id="visitor"></label>
-                <input type="radio" name="winner">
-            </div>
-            <button>Submit</button>
-            <datalist id="pokemonsNames">
-                <option value="Bulbasaur" img-value="001-00">Bulbasaur</option>
-                <option value="Ivysaur" img-value="002-00">Ivysaur</option>
-                <option value="Venusaur" img-value="003-00">Venusaur</option>
-                <option value="Charmander" img-value="004-00">Charmander</option>
-                <option value="Charmeleon" img-value="005-00">Charmeleon</option>
-                <option value="Charizard" img-value="006-00">Charizard</option>
-                <option value="Squirtle" img-value="007-00">Squirtle</option>
-                <option value="Wartortle" img-value="008-00">Wartortle</option>
-                <option value="Blastoise" img-value="009-00">Blastoise</option>
-                <option value="Caterpie" img-value="010-00">Caterpie</option>
-                <option value="Metapod" img-value="011-00">Metapod</option>
-                <option value="Butterfree" img-value="012-00">Butterfree</option>
-                <option value="Weedle" img-value="013-00">Weedle</option>
-                <option value="Kakuna" img-value="014-00">Kakuna</option>
-                <option value="Beedrill" img-value="015-00">Beedrill</option>
-                <option value="Pidgey" img-value="016-00">Pidgey</option>
-                <option value="Pidgeotto" img-value="017-00">Pidgeotto</option>
-                <option value="Pidgeot" img-value="018-00">Pidgeot</option>
-                <option value="Rattata" img-value="019-00">Rattata</option>
-                <option value="Raticate" img-value="020-00">Raticate</option>
-                <option value="Spearow" img-value="021-00">Spearow</option>
-                <option value="Fearow" img-value="022-00">Fearow</option>
-                <option value="Ekans" img-value="023-00">Ekans</option>
-                <option value="Arbok" img-value="024-00">Arbok</option>
-                <option value="Pikachu" img-value="025-00">Pikachu</option>
-                <option value="Raichu" img-value="026-00">Raichu</option>
-                <option value="Sandshrew" img-value="027-00">Sandshrew</option>
-                <option value="Sandslash" img-value="028-00">Sandslash</option>
-                <option value="Nidoran&#x2640;" img-value="029-00">Nidoran&#x2640;</option>
-                <option value="Nidorina" img-value="030-00">Nidorina</option>
-                <option value="Nidoqueen" img-value="031-00">Nidoqueen</option>
-                <option value="Nidoran&#x2642;" img-value="032-00">Nidoran&#x2642;</option>
-                <option value="Nidorino" img-value="033-00">Nidorino</option>
-                <option value="Nidoking" img-value="034-00">Nidoking</option>
-                <option value="Clefairy" img-value="035-00">Clefairy</option>
-                <option value="Clefable" img-value="036-00">Clefable</option>
-                <option value="Vulpix" img-value="037-00">Vulpix</option>
-                <option value="Ninetales" img-value="038-00">Ninetales</option>
-                <option value="Jigglypuff" img-value="039-00">Jigglypuff</option>
-                <option value="Wigglytuff" img-value="040-00">Wigglytuff</option>
-                <option value="Zubat" img-value="041-00">Zubat</option>
-                <option value="Golbat" img-value="042-00">Golbat</option>
-                <option value="Oddish" img-value="043-00">Oddish</option>
-                <option value="Gloom" img-value="044-00">Gloom</option>
-                <option value="Vileplume" img-value="045-00">Vileplume</option>
-                <option value="Paras" img-value="046-00">Paras</option>
-                <option value="Parasect" img-value="047-00">Parasect</option>
-                <option value="Venonat" img-value="048-00">Venonat</option>
-                <option value="Venomoth" img-value="049-00">Venomoth</option>
-                <option value="Diglett" img-value="050-00">Diglett</option>
-                <option value="Dugtrio" img-value="051-00">Dugtrio</option>
-                <option value="Meowth" img-value="052-00">Meowth</option>
-                <option value="Persian" img-value="053-00">Persian</option>
-                <option value="Psyduck" img-value="054-00">Psyduck</option>
-                <option value="Golduck" img-value="055-00">Golduck</option>
-                <option value="Mankey" img-value="056-00">Mankey</option>
-                <option value="Primeape" img-value="057-00">Primeape</option>
-                <option value="Growlithe" img-value="058-00">Growlithe</option>
-                <option value="Arcanine" img-value="059-00">Arcanine</option>
-                <option value="Poliwag" img-value="060-00">Poliwag</option>
-                <option value="Poliwhirl" img-value="061-00">Poliwhirl</option>
-                <option value="Poliwrath" img-value="062-00">Poliwrath</option>
-                <option value="Abra" img-value="063-00">Abra</option>
-                <option value="Kadabra" img-value="064-00">Kadabra</option>
-                <option value="Alakazam" img-value="065-00">Alakazam</option>
-                <option value="Machop" img-value="066-00">Machop</option>
-                <option value="Machoke" img-value="067-00">Machoke</option>
-                <option value="Machamp" img-value="068-00">Machamp</option>
-                <option value="Bellsprout" img-value="069-00">Bellsprout</option>
-                <option value="Weepinbell" img-value="070-00">Weepinbell</option>
-                <option value="Victreebel" img-value="071-00">Victreebel</option>
-                <option value="Tentacool" img-value="072-00">Tentacool</option>
-                <option value="Tentacruel" img-value="073-00">Tentacruel</option>
-                <option value="Geodude" img-value="074-00">Geodude</option>
-                <option value="Graveler" img-value="075-00">Graveler</option>
-                <option value="Golem" img-value="076-00">Golem</option>
-                <option value="Ponyta" img-value="077-00">Ponyta</option>
-                <option value="Rapidash" img-value="078-00">Rapidash</option>
-                <option value="Slowpoke" img-value="079-00">Slowpoke</option>
-                <option value="Slowbro" img-value="080-00">Slowbro</option>
-                <option value="Magnemite" img-value="081-00">Magnemite</option>
-                <option value="Magneton" img-value="082-00">Magneton</option>
-                <option value="Farfetch'd" img-value="083-00">Farfetch'd</option>
-                <option value="Doduo" img-value="084-00">Doduo</option>
-                <option value="Dodrio" img-value="085-00">Dodrio</option>
-                <option value="Seel" img-value="086-00">Seel</option>
-                <option value="Dewgong" img-value="087-00">Dewgong</option>
-                <option value="Grimer" img-value="088-00">Grimer</option>
-                <option value="Muk" img-value="089-00">Muk</option>
-                <option value="Shellder" img-value="090-00">Shellder</option>
-                <option value="Cloyster" img-value="091-00">Cloyster</option>
-                <option value="Gastly" img-value="092-00">Gastly</option>
-                <option value="Haunter" img-value="093-00">Haunter</option>
-                <option value="Gengar" img-value="094-00">Gengar</option>
-                <option value="Onix" img-value="095-00">Onix</option>
-                <option value="Drowzee" img-value="096-00">Drowzee</option>
-                <option value="Hypno" img-value="097-00">Hypno</option>
-                <option value="Krabby" img-value="098-00">Krabby</option>
-                <option value="Kingler" img-value="099-00">Kingler</option>
-                <option value="Voltorb" img-value="100-00">Voltorb</option>
-                <option value="Electrode" img-value="101-00">Electrode</option>
-                <option value="Exeggcute" img-value="102-00">Exeggcute</option>
-                <option value="Exeggutor" img-value="103-00">Exeggutor</option>
-                <option value="Cubone" img-value="104-00">Cubone</option>
-                <option value="Marowak" img-value="105-00">Marowak</option>
-                <option value="Hitmonlee" img-value="106-00">Hitmonlee</option>
-                <option value="Hitmonchan" img-value="107-00">Hitmonchan</option>
-                <option value="Lickitung" img-value="108-00">Lickitung</option>
-                <option value="Koffing" img-value="109-00">Koffing</option>
-                <option value="Weezing" img-value="110-00">Weezing</option>
-                <option value="Rhyhorn" img-value="111-00">Rhyhorn</option>
-                <option value="Rhydon" img-value="112-00">Rhydon</option>
-                <option value="Chansey" img-value="113-00">Chansey</option>
-                <option value="Tangela" img-value="114-00">Tangela</option>
-                <option value="Kangaskhan" img-value="115-00">Kangaskhan</option>
-                <option value="Horsea" img-value="116-00">Horsea</option>
-                <option value="Seadra" img-value="117-00">Seadra</option>
-                <option value="Goldeen" img-value="118-00">Goldeen</option>
-                <option value="Seaking" img-value="119-00">Seaking</option>
-                <option value="Staryu" img-value="120-00">Staryu</option>
-                <option value="Starmie" img-value="121-00">Starmie</option>
-                <option value="Mr. Mime" img-value="122-00">Mr. Mime</option>
-                <option value="Scyther" img-value="123-00">Scyther</option>
-                <option value="Jynx" img-value="124-00">Jynx</option>
-                <option value="Electabuzz" img-value="125-00">Electabuzz</option>
-                <option value="Magmar" img-value="126-00">Magmar</option>
-                <option value="Pinsir" img-value="127-00">Pinsir</option>
-                <option value="Tauros" img-value="128-00">Tauros</option>
-                <option value="Magikarp" img-value="129-00">Magikarp</option>
-                <option value="Gyarados" img-value="130-00">Gyarados</option>
-                <option value="Lapras" img-value="131-00">Lapras</option>
-                <option value="Ditto" img-value="132-00">Ditto</option>
-                <option value="Eevee" img-value="133-00">Eevee</option>
-                <option value="Vaporeon" img-value="134-00">Vaporeon</option>
-                <option value="Jolteon" img-value="135-00">Jolteon</option>
-                <option value="Flareon" img-value="136-00">Flareon</option>
-                <option value="Porygon" img-value="137-00">Porygon</option>
-                <option value="Omanyte" img-value="138-00">Omanyte</option>
-                <option value="Omastar" img-value="139-00">Omastar</option>
-                <option value="Kabuto" img-value="140-00">Kabuto</option>
-                <option value="Kabutops" img-value="141-00">Kabutops</option>
-                <option value="Aerodactyl" img-value="142-00">Aerodactyl</option>
-                <option value="Snorlax" img-value="143-00">Snorlax</option>
-                <option value="Articuno" img-value="144-00">Articuno</option>
-                <option value="Zapdos" img-value="145-00">Zapdos</option>
-                <option value="Moltres" img-value="146-00">Moltres</option>
-                <option value="Dratini" img-value="147-00">Dratini</option>
-                <option value="Dragonair" img-value="148-00">Dragonair</option>
-                <option value="Dragonite" img-value="149-00">Dragonite</option>
-                <option value="Mewtwo" img-value="150-00">Mewtwo</option>
-                <option value="Mew" img-value="151-00">Mew</option>
-                <option value="Chikorita" img-value="152-00">Chikorita</option>
-                <option value="Bayleef" img-value="153-00">Bayleef</option>
-                <option value="Meganium" img-value="154-00">Meganium</option>
-                <option value="Cyndaquil" img-value="155-00">Cyndaquil</option>
-                <option value="Quilava" img-value="156-00">Quilava</option>
-                <option value="Typhlosion" img-value="157-00">Typhlosion</option>
-                <option value="Totodile" img-value="158-00">Totodile</option>
-                <option value="Croconaw" img-value="159-00">Croconaw</option>
-                <option value="Feraligatr" img-value="160-00">Feraligatr</option>
-                <option value="Sentret" img-value="161-00">Sentret</option>
-                <option value="Furret" img-value="162-00">Furret</option>
-                <option value="Hoothoot" img-value="163-00">Hoothoot</option>
-                <option value="Noctowl" img-value="164-00">Noctowl</option>
-                <option value="Ledyba" img-value="165-00">Ledyba</option>
-                <option value="Ledian" img-value="166-00">Ledian</option>
-                <option value="Spinarak" img-value="167-00">Spinarak</option>
-                <option value="Ariados" img-value="168-00">Ariados</option>
-                <option value="Crobat" img-value="169-00">Crobat</option>
-                <option value="Chinchou" img-value="170-00">Chinchou</option>
-                <option value="Lanturn" img-value="171-00">Lanturn</option>
-                <option value="Pichu" img-value="172-00">Pichu</option>
-                <option value="Cleffa" img-value="173-00">Cleffa</option>
-                <option value="Igglybuff" img-value="174-00">Igglybuff</option>
-                <option value="Togepi" img-value="175-00">Togepi</option>
-                <option value="Togetic" img-value="176-00">Togetic</option>
-                <option value="Natu" img-value="177-00">Natu</option>
-                <option value="Xatu" img-value="178-00">Xatu</option>
-                <option value="Mareep" img-value="179-00">Mareep</option>
-                <option value="Flaaffy" img-value="180-00">Flaaffy</option>
-                <option value="Ampharos" img-value="181-00">Ampharos</option>
-                <option value="Bellossom" img-value="182-00">Bellossom</option>
-                <option value="Marill" img-value="183-00">Marill</option>
-                <option value="Azumarill" img-value="184-00">Azumarill</option>
-                <option value="Sudowoodo" img-value="185-00">Sudowoodo</option>
-                <option value="Politoed" img-value="186-00">Politoed</option>
-                <option value="Hoppip" img-value="187-00">Hoppip</option>
-                <option value="Skiploom" img-value="188-00">Skiploom</option>
-                <option value="Jumpluff" img-value="189-00">Jumpluff</option>
-                <option value="Aipom" img-value="190-00">Aipom</option>
-                <option value="Sunkern" img-value="191-00">Sunkern</option>
-                <option value="Sunflora" img-value="192-00">Sunflora</option>
-                <option value="Yanma" img-value="193-00">Yanma</option>
-                <option value="Wooper" img-value="194-00">Wooper</option>
-                <option value="Quagsire" img-value="195-00">Quagsire</option>
-                <option value="Espeon" img-value="196-00">Espeon</option>
-                <option value="Umbreon" img-value="197-00">Umbreon</option>
-                <option value="Murkrow" img-value="198-00">Murkrow</option>
-                <option value="Slowking" img-value="199-00">Slowking</option>
-                <option value="Misdreavus" img-value="200-00">Misdreavus</option>
-                <option value="Unown" img-value="201-00">Unown</option>
-                <option value="Wobbuffet" img-value="202-00">Wobbuffet</option>
-                <option value="Girafarig" img-value="203-00">Girafarig</option>
-                <option value="Pineco" img-value="204-00">Pineco</option>
-                <option value="Forretress" img-value="205-00">Forretress</option>
-                <option value="Dunsparce" img-value="206-00">Dunsparce</option>
-                <option value="Gligar" img-value="207-00">Gligar</option>
-                <option value="Steelix" img-value="208-00">Steelix</option>
-                <option value="Snubbull" img-value="209-00">Snubbull</option>
-                <option value="Granbull" img-value="210-00">Granbull</option>
-                <option value="Qwilfish" img-value="211-00">Qwilfish</option>
-                <option value="Scizor" img-value="212-00">Scizor</option>
-                <option value="Shuckle" img-value="213-00">Shuckle</option>
-                <option value="Heracross" img-value="214-00">Heracross</option>
-                <option value="Sneasel" img-value="215-00">Sneasel</option>
-                <option value="Teddiursa" img-value="216-00">Teddiursa</option>
-                <option value="Ursaring" img-value="217-00">Ursaring</option>
-                <option value="Slugma" img-value="218-00">Slugma</option>
-                <option value="Magcargo" img-value="219-00">Magcargo</option>
-                <option value="Swinub" img-value="220-00">Swinub</option>
-                <option value="Piloswine" img-value="221-00">Piloswine</option>
-                <option value="Corsola" img-value="222-00">Corsola</option>
-                <option value="Remoraid" img-value="223-00">Remoraid</option>
-                <option value="Octillery" img-value="224-00">Octillery</option>
-                <option value="Delibird" img-value="225-00">Delibird</option>
-                <option value="Mantine" img-value="226-00">Mantine</option>
-                <option value="Skarmory" img-value="227-00">Skarmory</option>
-                <option value="Houndour" img-value="228-00">Houndour</option>
-                <option value="Houndoom" img-value="229-00">Houndoom</option>
-                <option value="Kingdra" img-value="230-00">Kingdra</option>
-                <option value="Phanpy" img-value="231-00">Phanpy</option>
-                <option value="Donphan" img-value="232-00">Donphan</option>
-                <option value="Porygon2" img-value="233-00">Porygon2</option>
-                <option value="Stantler" img-value="234-00">Stantler</option>
-                <option value="Smeargle" img-value="235-00">Smeargle</option>
-                <option value="Tyrogue" img-value="236-00">Tyrogue</option>
-                <option value="Hitmontop" img-value="237-00">Hitmontop</option>
-                <option value="Smoochum" img-value="238-00">Smoochum</option>
-                <option value="Elekid" img-value="239-00">Elekid</option>
-                <option value="Magby" img-value="240-00">Magby</option>
-                <option value="Miltank" img-value="241-00">Miltank</option>
-                <option value="Blissey" img-value="242-00">Blissey</option>
-                <option value="Raikou" img-value="243-00">Raikou</option>
-                <option value="Entei" img-value="244-00">Entei</option>
-                <option value="Suicune" img-value="245-00">Suicune</option>
-                <option value="Larvitar" img-value="246-00">Larvitar</option>
-                <option value="Pupitar" img-value="247-00">Pupitar</option>
-                <option value="Tyranitar" img-value="248-00">Tyranitar</option>
-                <option value="Lugia" img-value="249-00">Lugia</option>
-                <option value="Ho-Oh" img-value="250-00">Ho-Oh</option>
-                <option value="Celebi" img-value="251-00">Celebi</option>
-                <option value="Treecko" img-value="252-00">Treecko</option>
-                <option value="Grovyle" img-value="253-00">Grovyle</option>
-                <option value="Sceptile" img-value="254-00">Sceptile</option>
-                <option value="Torchic" img-value="255-00">Torchic</option>
-                <option value="Combusken" img-value="256-00">Combusken</option>
-                <option value="Blaziken" img-value="257-00">Blaziken</option>
-                <option value="Mudkip" img-value="258-00">Mudkip</option>
-                <option value="Marshtomp" img-value="259-00">Marshtomp</option>
-                <option value="Swampert" img-value="260-00">Swampert</option>
-                <option value="Poochyena" img-value="261-00">Poochyena</option>
-                <option value="Mightyena" img-value="262-00">Mightyena</option>
-                <option value="Zigzagoon" img-value="263-00">Zigzagoon</option>
-                <option value="Linoone" img-value="264-00">Linoone</option>
-                <option value="Wurmple" img-value="265-00">Wurmple</option>
-                <option value="Silcoon" img-value="266-00">Silcoon</option>
-                <option value="Beautifly" img-value="267-00">Beautifly</option>
-                <option value="Cascoon" img-value="268-00">Cascoon</option>
-                <option value="Dustox" img-value="269-00">Dustox</option>
-                <option value="Lotad" img-value="270-00">Lotad</option>
-                <option value="Lombre" img-value="271-00">Lombre</option>
-                <option value="Ludicolo" img-value="272-00">Ludicolo</option>
-                <option value="Seedot" img-value="273-00">Seedot</option>
-                <option value="Nuzleaf" img-value="274-00">Nuzleaf</option>
-                <option value="Shiftry" img-value="275-00">Shiftry</option>
-                <option value="Taillow" img-value="276-00">Taillow</option>
-                <option value="Swellow" img-value="277-00">Swellow</option>
-                <option value="Wingull" img-value="278-00">Wingull</option>
-                <option value="Pelipper" img-value="279-00">Pelipper</option>
-                <option value="Ralts" img-value="280-00">Ralts</option>
-                <option value="Kirlia" img-value="281-00">Kirlia</option>
-                <option value="Gardevoir" img-value="282-00">Gardevoir</option>
-                <option value="Surskit" img-value="283-00">Surskit</option>
-                <option value="Masquerain" img-value="284-00">Masquerain</option>
-                <option value="Shroomish" img-value="285-00">Shroomish</option>
-                <option value="Breloom" img-value="286-00">Breloom</option>
-                <option value="Slakoth" img-value="287-00">Slakoth</option>
-                <option value="Vigoroth" img-value="288-00">Vigoroth</option>
-                <option value="Slaking" img-value="289-00">Slaking</option>
-                <option value="Nincada" img-value="290-00">Nincada</option>
-                <option value="Ninjask" img-value="291-00">Ninjask</option>
-                <option value="Shedinja" img-value="292-00">Shedinja</option>
-                <option value="Whismur" img-value="293-00">Whismur</option>
-                <option value="Loudred" img-value="294-00">Loudred</option>
-                <option value="Exploud" img-value="295-00">Exploud</option>
-                <option value="Makuhita" img-value="296-00">Makuhita</option>
-                <option value="Hariyama" img-value="297-00">Hariyama</option>
-                <option value="Azurill" img-value="298-00">Azurill</option>
-                <option value="Nosepass" img-value="299-00">Nosepass</option>
-                <option value="Skitty" img-value="300-00">Skitty</option>
-                <option value="Delcatty" img-value="301-00">Delcatty</option>
-                <option value="Sableye" img-value="302-00">Sableye</option>
-                <option value="Mawile" img-value="303-00">Mawile</option>
-                <option value="Aron" img-value="304-00">Aron</option>
-                <option value="Lairon" img-value="305-00">Lairon</option>
-                <option value="Aggron" img-value="306-00">Aggron</option>
-                <option value="Meditite" img-value="307-00">Meditite</option>
-                <option value="Medicham" img-value="308-00">Medicham</option>
-                <option value="Electrike" img-value="309-00">Electrike</option>
-                <option value="Manectric" img-value="310-00">Manectric</option>
-                <option value="Plusle" img-value="311-00">Plusle</option>
-                <option value="Minun" img-value="312-00">Minun</option>
-                <option value="Volbeat" img-value="313-00">Volbeat</option>
-                <option value="Illumise" img-value="314-00">Illumise</option>
-                <option value="Roselia" img-value="315-00">Roselia</option>
-                <option value="Gulpin" img-value="316-00">Gulpin</option>
-                <option value="Swalot" img-value="317-00">Swalot</option>
-                <option value="Carvanha" img-value="318-00">Carvanha</option>
-                <option value="Sharpedo" img-value="319-00">Sharpedo</option>
-                <option value="Wailmer" img-value="320-00">Wailmer</option>
-                <option value="Wailord" img-value="321-00">Wailord</option>
-                <option value="Numel" img-value="322-00">Numel</option>
-                <option value="Camerupt" img-value="323-00">Camerupt</option>
-                <option value="Torkoal" img-value="324-00">Torkoal</option>
-                <option value="Spoink" img-value="325-00">Spoink</option>
-                <option value="Grumpig" img-value="326-00">Grumpig</option>
-                <option value="Spinda" img-value="327-00">Spinda</option>
-                <option value="Trapinch" img-value="328-00">Trapinch</option>
-                <option value="Vibrava" img-value="329-00">Vibrava</option>
-                <option value="Flygon" img-value="330-00">Flygon</option>
-                <option value="Cacnea" img-value="331-00">Cacnea</option>
-                <option value="Cacturne" img-value="332-00">Cacturne</option>
-                <option value="Swablu" img-value="333-00">Swablu</option>
-                <option value="Altaria" img-value="334-00">Altaria</option>
-                <option value="Zangoose" img-value="335-00">Zangoose</option>
-                <option value="Seviper" img-value="336-00">Seviper</option>
-                <option value="Lunatone" img-value="337-00">Lunatone</option>
-                <option value="Solrock" img-value="338-00">Solrock</option>
-                <option value="Barboach" img-value="339-00">Barboach</option>
-                <option value="Whiscash" img-value="340-00">Whiscash</option>
-                <option value="Corphish" img-value="341-00">Corphish</option>
-                <option value="Crawdaunt" img-value="342-00">Crawdaunt</option>
-                <option value="Baltoy" img-value="343-00">Baltoy</option>
-                <option value="Claydol" img-value="344-00">Claydol</option>
-                <option value="Lileep" img-value="345-00">Lileep</option>
-                <option value="Cradily" img-value="346-00">Cradily</option>
-                <option value="Anorith" img-value="347-00">Anorith</option>
-                <option value="Armaldo" img-value="348-00">Armaldo</option>
-                <option value="Feebas" img-value="349-00">Feebas</option>
-                <option value="Milotic" img-value="350-00">Milotic</option>
-                <option value="Castform" img-value="351-00">Castform</option>
-                <option value="Kecleon" img-value="352-00">Kecleon</option>
-                <option value="Shuppet" img-value="353-00">Shuppet</option>
-                <option value="Banette" img-value="354-00">Banette</option>
-                <option value="Duskull" img-value="355-00">Duskull</option>
-                <option value="Dusclops" img-value="356-00">Dusclops</option>
-                <option value="Tropius" img-value="357-00">Tropius</option>
-                <option value="Chimecho" img-value="358-00">Chimecho</option>
-                <option value="Absol" img-value="359-00">Absol</option>
-                <option value="Wynaut" img-value="360-00">Wynaut</option>
-                <option value="Snorunt" img-value="361-00">Snorunt</option>
-                <option value="Glalie" img-value="362-00">Glalie</option>
-                <option value="Spheal" img-value="363-00">Spheal</option>
-                <option value="Sealeo" img-value="364-00">Sealeo</option>
-                <option value="Walrein" img-value="365-00">Walrein</option>
-                <option value="Clamperl" img-value="366-00">Clamperl</option>
-                <option value="Huntail" img-value="367-00">Huntail</option>
-                <option value="Gorebyss" img-value="368-00">Gorebyss</option>
-                <option value="Relicanth" img-value="369-00">Relicanth</option>
-                <option value="Luvdisc" img-value="370-00">Luvdisc</option>
-                <option value="Bagon" img-value="371-00">Bagon</option>
-                <option value="Shelgon" img-value="372-00">Shelgon</option>
-                <option value="Salamence" img-value="373-00">Salamence</option>
-                <option value="Beldum" img-value="374-00">Beldum</option>
-                <option value="Metang" img-value="375-00">Metang</option>
-                <option value="Metagross" img-value="376-00">Metagross</option>
-                <option value="Regirock" img-value="377-00">Regirock</option>
-                <option value="Regice" img-value="378-00">Regice</option>
-                <option value="Registeel" img-value="379-00">Registeel</option>
-                <option value="Latias" img-value="380-00">Latias</option>
-                <option value="Latios" img-value="381-00">Latios</option>
-                <option value="Kyogre" img-value="382-00">Kyogre</option>
-                <option value="Groudon" img-value="383-00">Groudon</option>
-                <option value="Rayquaza" img-value="384-00">Rayquaza</option>
-                <option value="Jirachi" img-value="385-00">Jirachi</option>
-                <option value="Deoxys" img-value="386-00">Deoxys</option>
-                <option value="Turtwig" img-value="387-00">Turtwig</option>
-                <option value="Grotle" img-value="388-00">Grotle</option>
-                <option value="Torterra" img-value="389-00">Torterra</option>
-                <option value="Chimchar" img-value="390-00">Chimchar</option>
-                <option value="Monferno" img-value="391-00">Monferno</option>
-                <option value="Infernape" img-value="392-00">Infernape</option>
-                <option value="Piplup" img-value="393-00">Piplup</option>
-                <option value="Prinplup" img-value="394-00">Prinplup</option>
-                <option value="Empoleon" img-value="395-00">Empoleon</option>
-                <option value="Starly" img-value="396-00">Starly</option>
-                <option value="Staravia" img-value="397-00">Staravia</option>
-                <option value="Staraptor" img-value="398-00">Staraptor</option>
-                <option value="Bidoof" img-value="399-00">Bidoof</option>
-                <option value="Bibarel" img-value="400-00">Bibarel</option>
-                <option value="Kricketot" img-value="401-00">Kricketot</option>
-                <option value="Kricketune" img-value="402-00">Kricketune</option>
-                <option value="Shinx" img-value="403-00">Shinx</option>
-                <option value="Luxio" img-value="404-00">Luxio</option>
-                <option value="Luxray" img-value="405-00">Luxray</option>
-                <option value="Budew" img-value="406-00">Budew</option>
-                <option value="Roserade" img-value="407-00">Roserade</option>
-                <option value="Cranidos" img-value="408-00">Cranidos</option>
-                <option value="Rampardos" img-value="409-00">Rampardos</option>
-                <option value="Shieldon" img-value="410-00">Shieldon</option>
-                <option value="Bastiodon" img-value="411-00">Bastiodon</option>
-                <option value="Burmy" img-value="412-00">Burmy</option>
-                <option value="Wormadam" img-value="413-00">Wormadam</option>
-                <option value="Mothim" img-value="414-00">Mothim</option>
-                <option value="Combee" img-value="415-00">Combee</option>
-                <option value="Vespiquen" img-value="416-00">Vespiquen</option>
-                <option value="Pachirisu" img-value="417-00">Pachirisu</option>
-                <option value="Buizel" img-value="418-00">Buizel</option>
-                <option value="Floatzel" img-value="419-00">Floatzel</option>
-                <option value="Cherubi" img-value="420-00">Cherubi</option>
-                <option value="Cherrim" img-value="421-00">Cherrim</option>
-                <option value="Shellos" img-value="422-00">Shellos</option>
-                <option value="Gastrodon" img-value="423-00">Gastrodon</option>
-                <option value="Ambipom" img-value="424-00">Ambipom</option>
-                <option value="Drifloon" img-value="425-00">Drifloon</option>
-                <option value="Drifblim" img-value="426-00">Drifblim</option>
-                <option value="Buneary" img-value="427-00">Buneary</option>
-                <option value="Lopunny" img-value="428-00">Lopunny</option>
-                <option value="Mismagius" img-value="429-00">Mismagius</option>
-                <option value="Honchkrow" img-value="430-00">Honchkrow</option>
-                <option value="Glameow" img-value="431-00">Glameow</option>
-                <option value="Purugly" img-value="432-00">Purugly</option>
-                <option value="Chingling" img-value="433-00">Chingling</option>
-                <option value="Stunky" img-value="434-00">Stunky</option>
-                <option value="Skuntank" img-value="435-00">Skuntank</option>
-                <option value="Bronzor" img-value="436-00">Bronzor</option>
-                <option value="Bronzong" img-value="437-00">Bronzong</option>
-                <option value="Bonsly" img-value="438-00">Bonsly</option>
-                <option value="Mime Jr." img-value="439-00">Mime Jr.</option>
-                <option value="Happiny" img-value="440-00">Happiny</option>
-                <option value="Chatot" img-value="441-00">Chatot</option>
-                <option value="Spiritomb" img-value="442-00">Spiritomb</option>
-                <option value="Gible" img-value="443-00">Gible</option>
-                <option value="Gabite" img-value="444-00">Gabite</option>
-                <option value="Garchomp" img-value="445-00">Garchomp</option>
-                <option value="Munchlax" img-value="446-00">Munchlax</option>
-                <option value="Riolu" img-value="447-00">Riolu</option>
-                <option value="Lucario" img-value="448-00">Lucario</option>
-                <option value="Hippopotas" img-value="449-00">Hippopotas</option>
-                <option value="Hippowdon" img-value="450-00">Hippowdon</option>
-                <option value="Skorupi" img-value="451-00">Skorupi</option>
-                <option value="Drapion" img-value="452-00">Drapion</option>
-                <option value="Croagunk" img-value="453-00">Croagunk</option>
-                <option value="Toxicroak" img-value="454-00">Toxicroak</option>
-                <option value="Carnivine" img-value="455-00">Carnivine</option>
-                <option value="Finneon" img-value="456-00">Finneon</option>
-                <option value="Lumineon" img-value="457-00">Lumineon</option>
-                <option value="Mantyke" img-value="458-00">Mantyke</option>
-                <option value="Snover" img-value="459-00">Snover</option>
-                <option value="Abomasnow" img-value="460-00">Abomasnow</option>
-                <option value="Weavile" img-value="461-00">Weavile</option>
-                <option value="Magnezone" img-value="462-00">Magnezone</option>
-                <option value="Lickilicky" img-value="463-00">Lickilicky</option>
-                <option value="Rhyperior" img-value="464-00">Rhyperior</option>
-                <option value="Tangrowth" img-value="465-00">Tangrowth</option>
-                <option value="Electivire" img-value="466-00">Electivire</option>
-                <option value="Magmortar" img-value="467-00">Magmortar</option>
-                <option value="Togekiss" img-value="468-00">Togekiss</option>
-                <option value="Yanmega" img-value="469-00">Yanmega</option>
-                <option value="Leafeon" img-value="470-00">Leafeon</option>
-                <option value="Glaceon" img-value="471-00">Glaceon</option>
-                <option value="Gliscor" img-value="472-00">Gliscor</option>
-                <option value="Mamoswine" img-value="473-00">Mamoswine</option>
-                <option value="Porygon-Z" img-value="474-00">Porygon-Z</option>
-                <option value="Gallade" img-value="475-00">Gallade</option>
-                <option value="Probopass" img-value="476-00">Probopass</option>
-                <option value="Dusknoir" img-value="477-00">Dusknoir</option>
-                <option value="Froslass" img-value="478-00">Froslass</option>
-                <option value="Rotom" img-value="479-00">Rotom</option>
-                <option value="Uxie" img-value="480-00">Uxie</option>
-                <option value="Mesprit" img-value="481-00">Mesprit</option>
-                <option value="Azelf" img-value="482-00">Azelf</option>
-                <option value="Dialga" img-value="483-00">Dialga</option>
-                <option value="Palkia" img-value="484-00">Palkia</option>
-                <option value="Heatran" img-value="485-00">Heatran</option>
-                <option value="Regigigas" img-value="486-00">Regigigas</option>
-                <option value="Giratina" img-value="487-00">Giratina</option>
-                <option value="Cresselia" img-value="488-00">Cresselia</option>
-                <option value="Phione" img-value="489-00">Phione</option>
-                <option value="Manaphy" img-value="490-00">Manaphy</option>
-                <option value="Darkrai" img-value="491-00">Darkrai</option>
-                <option value="Shaymin" img-value="492-00">Shaymin</option>
-                <option value="Arceus" img-value="493-00">Arceus</option>
-                <option value="Meltan" img-value="808-00">Meltan</option>
-                <option value="Melmetal" img-value="809-00">Melmetal</option>
-                <option img-value="019-61" value="Rattata (Alola Form)"> Rattata (Alola Form)</option>
-                <option img-value="020-61" value="Raticate (Alola Form)"> Raticate (Alola Form)</option>
-                <option img-value="026-61" value="Raichu (Alola Form)"> Raichu (Alola Form)</option>
-                <option img-value="027-61" value="Sandshrew (Alola Form)"> Sandshrew (Alola Form)</option>
-                <option img-value="028-61" value="Sandslash (Alola Form)"> Sandslash (Alola Form)</option>
-                <option img-value="037-61" value="Vulpix (Alola Form)"> Vulpix (Alola Form)</option>
-                <option img-value="038-61" value="Ninetales (Alola Form)"> Ninetales (Alola Form)</option>
-                <option img-value="050-61" value="Diglett (Alola Form)"> Diglett (Alola Form)</option>
-                <option img-value="051-61" value="Dugtrio (Alola Form)"> Dugtrio (Alola Form)</option>
-                <option img-value="052-61" value="Meowth (Alola Form)"> Meowth (Alola Form)</option>
-                <option img-value="053-61" value="Persian (Alola Form)"> Persian (Alola Form)</option>
-                <option img-value="074-61" value="Geodude (Alola Form)"> Geodude (Alola Form)</option>
-                <option img-value="075-61" value="Graveler (Alola Form)"> Graveler (Alola Form)</option>
-                <option img-value="076-61" value="Golem (Alola Form)"> Golem (Alola Form)</option>
-                <option img-value="088-61" value="Grimer (Alola Form)"> Grimer (Alola Form)</option>
-                <option img-value="089-61" value="Muk (Alola Form)"> Muk (Alola Form)</option>
-            </datalist>
-        </form>
         <div class="logo"><img src="assets/img/logo.png" alt="PokePVP"></div>
-        <div class="types">
-            <!--
-            <span class="icoType psychic"></span>
-            <span class="icoType electric"></span>
-            <span class="icoType dragon"></span>
-      <span class="icoType ghost"></span>
-      <span class="icoType normal"></span>
-      <span class="icoType rock"></span>
-      <span class="icoType steel"></span>
-      <span class="icoType fire"></span>
-      <span class="icoType grass"></span>
-      <span class="icoType ground"></span>
-      <span class="icoType fairy"></span>
-      <span class="icoType ice"></span>
-      <span class="icoType water"></span>
-      <span class="icoType fighting"></span>
-      <span class="icoType poison"></span>
-      <span class="icoType flying"></span>
-      <span class="icoType bug"></span>
-      <span class="icoType dark"></span>
-    -->
-            <!--
-
-    -->
+        <div class="generateRandom">
+            <form action="" id="options">
+                <ul class="showRandomTypes"></ul>
+                <fieldset>
+                    <p>
+                        <input name="typeAmmount" type="radio" id="oneRandom" value="1">
+                        <label for="typeAmmount">Generate 1 Random Type</label>
+                    </p>
+                    <p>
+                        <input name="typeAmmount" type="radio" id="threeRandoms" value="3" checked>
+                        <label for="typeAmmount">Generate 3 Randoms Types</label>
+                        <input name="enableRepeat" type="checkbox" id="enableRepeatedRandoms">
+                        <label for="enableRepeat">Enable Repeat</label>
+                    </p>
+                </fieldset>
+            </form>
+            <button class="randomChooseBtn">Generate Random Types</button>
         </div>
-        <form action="" id="options">
-            <fieldset>
-                <p>
-                    <input name="typeAmmount" type="radio" id="oneRandom" value="1">
-                    <label for="typeAmmount">Generate 1 Random Type</label>
-                </p>
-                <p>
-                    <input name="typeAmmount" type="radio" id="threeRandoms" value="3" checked>
-                    <label for="typeAmmount">Generate 3 Randoms Types</label>
-                    <input name="enableRepeat" type="checkbox" id="enableRepeatedRandoms">
-                    <label for="enableRepeat">Enable Repeat</label>
-                </p>
-            </fieldset>
-        </form>
-        <button class="randomChooseBtn">Generate Random Types</button>
+        <div class="challengeUser">
+            <select name="usersList" class="usersList"></select><button class="challengeUser">Challenge User</button>
+            <form class="submitResults">
+                <div class="playerSubmit">
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                </div>
+                <div class="playerSubmit">
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                    <div class="pokeImage">
+                        <img class="pokeImg" src="" alt="">
+                        <input name="pokename" placeholder="Pokemon Name" class="pokemonName" list="pokemonsNames">
+                    </div>
+                </div>
+                <div class="winner">
+                    <label for="winner" id="host"></label>
+                    <input type="radio" name="winner">
+                    <label for="winner" id="visitor"></label>
+                    <input type="radio" name="winner">
+                </div>
+                <button>Submit</button>
+                <datalist id="pokemonsNames"></datalist>
+            </form>
+        </div>
+
     </div>
     <script src="/socket.io/socket.io.js"></script>
 

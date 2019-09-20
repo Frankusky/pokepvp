@@ -5,7 +5,8 @@ let express = require("express"),
     io = require("socket.io")(server),
     pokepvp = require("./pokepvp.js"),
     dataStorage = require("./dataStorage.js"),
-    allUsers = [];
+    allUsers = [],
+    lastPublicRandom = pokepvp.randomThreeItemsChooser();
 /*
 allUsers = [{
     username: "Frankusky",
@@ -32,6 +33,8 @@ app.get("/", (req, res) => {
 })
 
 io.on("connection", (socket) => {
+    io.sockets.emit("displayPokemonTypes", lastPublicRandom);
+    
     io.sockets.emit("updateUserList", allUsers.map(user => {
         return user.username
     }))
@@ -75,6 +78,7 @@ io.on("connection", (socket) => {
                 }
             })
         } else {
+            lastPublicRandom = selectedTypes;
             io.sockets.emit("displayPokemonTypes", selectedTypes);
         }
     })
