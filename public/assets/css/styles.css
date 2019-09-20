@@ -141,6 +141,15 @@ input {
     margin-top: 10px;
     text-align: center;
     width: 100%;
+    position: relative;
+}
+
+.logo::after{
+    content:'Version 0.01';
+    font-size: 8px;
+    position: absolute;
+    bottom: 5px;
+    right:60px;
 }
 
 .logo img {
