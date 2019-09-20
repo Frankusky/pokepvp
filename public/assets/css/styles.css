@@ -16,12 +16,16 @@ body {
     margin: 0 20px;
 }
 
+select,
 button,
 input {
     padding: 5px 10px;
 }
 
 /*Modal Styles*/
+.showModal {
+    overflow: hidden;
+}
 
 .modalBackground {
     position: absolute;
@@ -31,6 +35,9 @@ input {
     transition: all ease .5s;
     background: #000;
     opacity: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .showModal .modalBackground {
@@ -43,6 +50,7 @@ input {
     left: 0;
     right: 0;
     position: absolute;
+    z-index: 2;
 }
 
 .modalContent {
@@ -126,6 +134,7 @@ input {
 /*App styles*/
 .container {
     max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -136,12 +145,12 @@ input {
 
 .logo img {
     width: 100%;
+    max-width: 300px;
 }
-
-.challengeUser {
-    display: none
+.usersCounter{
+    text-align: center;
+    margin-bottom: 10px;
 }
-
 .randomChooseBtn {
     display: block;
     margin: 10px auto 0px;
@@ -172,12 +181,38 @@ input {
     width: 33%;
 }
 
+.generateRandom {
+    position: relative
+}
+
 .generateRandom label {
     display: inline-block;
     width: 80%;
     vertical-align: top;
 }
 
+.playerSubmit {
+    display: inline-block;
+    width: 45%;
+}
+
+.submitResults {
+    display: none
+}
+
+.challengeUser {
+    margin-left: 20px;
+}
+
+.disableArea {
+    position: absolute;
+    width: 100%;
+    background: #000000;
+    height: 100%;
+    opacity: .2;
+    cursor: not-allowed;
+    display: none;
+}
 /*Pokemon Types Icons*/
 
 body:after {

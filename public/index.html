@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body class="hideModal">
+<body>
     <div class="modalBackground"></div>
     <div class="modal">
         <img class="pokeHeader" src="assets/img/pikachu.gif" alt="">
@@ -32,25 +32,8 @@
     </div>
     <div class="container">
         <div class="logo"><img src="assets/img/logo.png" alt="PokePVP"></div>
-        <div class="generateRandom">
-            <form action="" id="options" onsubmit="return false;">
-                <ul class="showRandomTypes"></ul>
-                <p>
-                    <input name="typeAmmount" type="radio" id="oneRandom" value="1">
-                    <label for="oneRandom">Generate 1 Random Type</label>
-                </p>
-                <p>
-                    <input name="typeAmmount" type="radio" id="threeRandoms" value="3" checked>
-                    <label for="threeRandoms">Generate 3 Randoms Types</label>
-                    <span class="enableRepeat">
-                        <input name="enableRepeat" type="checkbox" id="enableRepeatedRandoms">
-                        <label for="enableRepeatedRandoms">Enable Repeat</label>
-                    </span>
-                </p>
-                <button class="randomChooseBtn">Generate Random Types</button>
-            </form>
-        </div>
-        <div class="challengeUser">
+        <div class="challengeUserArea">
+            <div class="usersCounter"><span class="usersCount">0</span> Users online now.</div>
             <select name="usersList" class="usersList"></select><button class="challengeUser">Challenge User</button>
             <form class="submitResults">
                 <div class="playerSubmit">
@@ -91,6 +74,26 @@
                 <datalist id="pokemonsNames"></datalist>
             </form>
         </div>
+        <div class="generateRandom">
+            <div class="disableArea"></div>
+            <form action="" id="options" onsubmit="return false;">
+                <ul class="showRandomTypes"></ul>
+                <p>
+                    <input name="typeAmmount" type="radio" id="oneRandom" value="1">
+                    <label for="oneRandom">Generate 1 Random Type</label>
+                </p>
+                <p>
+                    <input name="typeAmmount" type="radio" id="threeRandoms" value="3" checked>
+                    <label for="threeRandoms">Generate 3 Randoms Types</label>
+                    <span class="enableRepeat">
+                        <input name="enableRepeat" type="checkbox" id="enableRepeatedRandoms">
+                        <label for="enableRepeatedRandoms">Enable Repeat</label>
+                    </span>
+                </p>
+                <button class="randomChooseBtn">Generate Random Types</button>
+            </form>
+        </div>
+
 
     </div>
     <script src="/socket.io/socket.io.js"></script>

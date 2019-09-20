@@ -524,18 +524,24 @@
         document.querySelector("#pokemonsNames").appendChild(pokemonName)
     })
 
-    //    document.body.classList.add("showModal");
+    document.body.classList.add("showModal");
+    if(localStorage && localStorage.getItem("username")){
+        document.getElementsByClassName("username")[0].value = localStorage.getItem("username");
+    }
 
     socket.on("updateUserList", data => {
-        document.querySelector(".usersList").innerHTML = "<option value=''>Select a player</option>";
+        var usersCounter = 0;
+        document.querySelector(".usersList").innerHTML = "<option value='' hidden>Select a player</option>";
         data.forEach(username => {
-            if (document.querySelector(".username").value != username) {
+            if (userData.username != username && username.match(/_guest\d{8}/g) == null) {
                 let newUserDom = document.createElement("option");
                 newUserDom.textContent = username;
                 newUserDom.value = username;
                 document.querySelector(".usersList").appendChild(newUserDom);
+                usersCounter++;
             }
         })
+        document.querySelector(".usersCount").innerHTML = data.length;
     })
 
     socket.on("displayPokemonTypes", data => {
@@ -563,11 +569,14 @@
         document.body.classList.remove("showModal");
         document.body.classList.add("hideModal");
         userData.username = document.querySelector(".username").value;
+        if(localStorage){localStorage.setItem("username", userData.username)}
         socket.emit("newUser", userData);
     })
     document.querySelector("#guestBtn").addEventListener("click", function () {
         document.body.classList.remove("showModal");
         document.body.classList.add("hideModal");
+        userData.username = "_guest" + Date.now();
+        socket.emit("newUser", userData);
     })
     document.querySelectorAll("[name='typeAmmount']").forEach(function (item) {
         item.addEventListener("click", function () {
@@ -592,7 +601,11 @@
     document.querySelector(".challengeUser").addEventListener("click", function () {
         let selectedUser = document.querySelector(".usersList").selectedOptions[0].value;
         userData.rival = selectedUser;
-        socket.emit("challengeUser", userData);
+        if(userData.username){
+            socket.emit("challengeUser", userData);
+        }else{
+            alert("You need to login to challenge someone!")
+        }
     })
 
     let loadPokemonImage = function () {

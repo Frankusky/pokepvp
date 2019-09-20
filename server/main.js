@@ -67,7 +67,7 @@ io.on("connection", (socket) => {
         //multiple users online
         if (allUsers.length > 0) {
             allUsers.forEach((item, index) => {
-                if (data.userData.rival) {
+                if (data.userData.rival) { //linked fight
                     if (item.challengeResponse && (data.userData.username === item.username || data.userData.rival === item.username)) {
                         io.to(item.id).emit("displayPokemonTypes", selectedTypes)
                     }
